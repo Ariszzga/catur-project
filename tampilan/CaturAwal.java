@@ -9,7 +9,6 @@ import mekanik.Papan;
 
 public class CaturAwal extends JPanel {
     static final int UKURAN = 80;
-    // huruf besar = putih, huruf kecil = hitam. Baris 0 = rank 8 (atas).
     static final String[] AWAL = {
         "rnbqkbnr",
         "pppppppp",
@@ -41,13 +40,11 @@ public class CaturAwal extends JPanel {
     void klik(int r, int c) {
         if (selesai || !Papan.dalam(r, c)) return;
 
-        // klik pada petak tujuan yang sah -> pindahkan bidak
         if (pilihBaris >= 0) {
             for (int[] t : tujuan) {
                 if (t[0] == r && t[1] == c) { pindah(r, c); return; }
             }
         }
-        // selain itu: pilih bidak milik pemain yang sedang giliran
         char p = k[r][c];
         if (p != '.' && Papan.putih(p) == giliranPutih) {
             pilihBaris = r;
@@ -121,7 +118,6 @@ public class CaturAwal extends JPanel {
                 g.drawString(s, x, y);
             }
         }
-        // penanda langkah sah: titik untuk petak kosong, lingkaran merah untuk makan
         for (int[] t : tujuan) {
             int cx = t[1] * UKURAN + UKURAN / 2, cy = t[0] * UKURAN + UKURAN / 2;
             if (k[t[0]][t[1]] == '.') {
@@ -147,3 +143,5 @@ public class CaturAwal extends JPanel {
         });
     }
 }
+
+//ppp

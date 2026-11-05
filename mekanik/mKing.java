@@ -3,7 +3,6 @@ package mekanik;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Raja: satu petak ke segala arah. (Belum ada aturan skak dan rokade.) */
 public final class mKing {
     private mKing() { }
 

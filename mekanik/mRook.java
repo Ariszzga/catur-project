@@ -3,7 +3,6 @@ package mekanik;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Benteng: meluncur lurus (atas, bawah, kiri, kanan). */
 public final class mRook {
     private mRook() { }
 

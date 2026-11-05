@@ -3,10 +3,6 @@ package mekanik;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Pion: maju 1 (2 dari posisi awal) bila petak depan kosong, makan serong 1 petak.
- * Putih maju ke atas (baris mengecil), hitam ke bawah. (Belum ada en passant.)
- */
 public final class mPawn {
     private mPawn() { }
 

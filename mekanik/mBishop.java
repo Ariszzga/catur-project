@@ -3,7 +3,6 @@ package mekanik;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Gajah: meluncur diagonal. */
 public final class mBishop {
     private mBishop() { }
 

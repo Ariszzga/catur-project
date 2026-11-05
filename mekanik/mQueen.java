@@ -2,7 +2,6 @@ package mekanik;
 
 import java.util.List;
 
-/** Ratu: gabungan benteng dan gajah. */
 public final class mQueen {
     private mQueen() { }
 

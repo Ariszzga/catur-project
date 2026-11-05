@@ -3,7 +3,6 @@ package mekanik;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Kuda: loncat berbentuk L, boleh melompati bidak lain. */
 public final class mKnight {
     private static final int[][] LONCAT = {{-2, -1}, {-2, 1}, {-1, -2}, {-1, 2}, {1, -2}, {1, 2}, {2, -1}, {2, 1}};
 
