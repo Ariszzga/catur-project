@@ -30,7 +30,7 @@ public class LoginForm extends JFrame {
 
         g.gridy = y++;
         g.insets = new Insets(0, 0, 22, 0);
-        kartu.add(Tema.header("CATUR", "Masuk untuk mulai bermain"), g);
+        kartu.add(Tema.header("MASTER BIDAK", "Masuk untuk mulai bermain"), g);
 
         g.gridy = y++;
         g.insets = new Insets(0, 0, 4, 0);

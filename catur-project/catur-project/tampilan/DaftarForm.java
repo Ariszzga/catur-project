@@ -20,6 +20,7 @@ public class DaftarForm extends JDialog {
     final Tema.Pilihan<String> cbBulan = new Tema.Pilihan<>(BULAN);
     final Tema.Pilihan<Integer> cbTahun = new Tema.Pilihan<>();
     final Tema.Alamat taAlamat = new Tema.Alamat();
+    final Tema.Teks tfEmail = new Tema.Teks(16, "nama@email.com");
     final Tema.Sandi pfPass = new Tema.Sandi(16, "Minimal 4 karakter");
     final Tema.Sandi pfKonfirmasi = new Tema.Sandi(16, "Ketik ulang password");
     final JLabel lblStatus = new JLabel(" ", SwingConstants.CENTER);
@@ -37,15 +38,15 @@ public class DaftarForm extends JDialog {
         grup.add(rbLaki);
         grup.add(rbPerempuan);
 
-        // ----- kolom kiri -----
+        // kolom kiri 
         JPanel kiri = kolom();
-        baris(kiri, 0, "Siapa namamu?", tfNama);
+        baris(kiri, 0, "Tulis nama kamu", tfNama);
 
         JPanel panelJk = new JPanel(new GridLayout(1, 2, 8, 0));
         panelJk.setOpaque(false);
         panelJk.add(rbLaki);
         panelJk.add(rbPerempuan);
-        baris(kiri, 1, "Kamu...", panelJk);
+        baris(kiri, 1, "Kamu seorang...", panelJk);
 
         JPanel panelTgl = new JPanel(new GridLayout(1, 3, 6, 0));
         panelTgl.setOpaque(false);
@@ -53,14 +54,15 @@ public class DaftarForm extends JDialog {
         panelTgl.add(cbBulan);
         panelTgl.add(cbTahun);
         baris(kiri, 2, "Kapan ulang tahunmu?", panelTgl);
+        baris(kiri, 3, "Alamat email kamu", tfEmail);
 
-        // ----- kolom kanan -----
+        //kolom kanan
         JPanel kanan = kolom();
         baris(kanan, 0, "Tinggal di mana?", taAlamat);
         baris(kanan, 1, "Buat password", pfPass);
         baris(kanan, 2, "Ulangi password", pfKonfirmasi);
 
-        // ----- susun kartu -----
+        //susun kartu
         Tema.Kartu kartu = new Tema.Kartu();
         kartu.setLayout(new GridBagLayout());
         GridBagConstraints g = new GridBagConstraints();
@@ -69,7 +71,7 @@ public class DaftarForm extends JDialog {
 
         g.gridx = 0; g.gridy = 0; g.gridwidth = 2;
         g.insets = new Insets(0, 0, 22, 0);
-        kartu.add(Tema.header("Yuk, Gabung!", "Isi data singkat ini, lalu langsung main catur"), g);
+        kartu.add(Tema.header("MASTER BIDAK", "Isi data singkat ini, lalu langsung main catur"), g);
 
         g.gridwidth = 1; g.gridy = 1; g.weightx = 1;
         g.insets = new Insets(0, 0, 0, 16);
@@ -147,6 +149,7 @@ public class DaftarForm extends JDialog {
             tfNama.getText().trim(), jk,
             ambilTanggalLahir(),
             taAlamat.getText().trim(),
+            tfEmail.getText().trim(),
             new String(pfPass.getPassword()),
             new String(pfKonfirmasi.getPassword()));
 

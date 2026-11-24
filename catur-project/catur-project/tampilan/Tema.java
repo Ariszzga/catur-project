@@ -65,7 +65,7 @@ public final class Tema {
         return p;
     }
 
-    // ---------- Latar: pola papan catur yang digelapkan ----------
+    // Latar: pola papan catur yang digelapkan
     public static class Latar extends JPanel {
         @Override
         protected void paintComponent(Graphics g0) {
@@ -84,7 +84,7 @@ public final class Tema {
         }
     }
 
-    // ---------- Kartu: sudut sangat bulat + bayangan ----------
+    //Kartu: sudut sangat bulat dan bayangan 
     public static class Kartu extends JPanel {
         public Kartu() {
             setOpaque(false);
@@ -106,7 +106,7 @@ public final class Tema {
         }
     }
 
-    // ---------- Kolom isian berbentuk kapsul + placeholder ----------
+    //Kolom isian berbentuk kapsul dan placeholder
     private static void lukisKolom(Graphics g0, JComponent c) {
         Graphics2D g = halus(g0);
         int a = c.getHeight();
@@ -225,7 +225,7 @@ public final class Tema {
         }
     }
 
-    // ---------- Dropdown berbentuk kapsul ----------
+    //Dropdown berbentuk kapsul
     public static class Pilihan<T> extends JComboBox<T> {
         public Pilihan() { super(); mulai(); }
         public Pilihan(T[] isi) { super(isi); mulai(); }
@@ -286,7 +286,7 @@ public final class Tema {
         }
     }
 
-    // ---------- Tombol pilihan berbentuk pil (untuk jenis kelamin) ----------
+    //Tombol pilihan berbentuk pil (untuk jenis kelamin)
     public static class Pil extends JToggleButton {
         private boolean diAtas = false;
 
@@ -326,7 +326,7 @@ public final class Tema {
         }
     }
 
-    // ---------- Tombol kapsul dengan efek hover ----------
+    //Tombol kapsul dengan efek hover
     public static class Tombol extends JButton {
         private final Color dasar, hover;
         private boolean diAtas = false;

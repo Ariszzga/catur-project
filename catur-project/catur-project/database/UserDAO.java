@@ -16,24 +16,27 @@ public final class UserDAO {
 
     // Mengembalikan null jika berhasil, atau pesan error jika gagal
     public static String daftar(String nama, String jenisKelamin, LocalDate tanggalLahir,
-                                String alamat, String password, String konfirmasi) {
+                                String alamat, String email, String password, String konfirmasi) {
         if (nama.length() < 3) return "Nama minimal 3 karakter.";
         if (jenisKelamin == null || jenisKelamin.isEmpty()) return "Pilih jenis kelamin.";
         if (tanggalLahir == null) return "Tanggal lahir tidak valid.";
         if (tanggalLahir.isAfter(LocalDate.now())) return "Tanggal lahir tidak boleh di masa depan.";
         if (alamat.isEmpty()) return "Alamat wajib diisi.";
+        if (email.isEmpty() || !email.matches("^[\\w.+-]+@[\\w-]+(\\.[\\w-]+)+$"))
+            return "Format email tidak valid.";
         if (password.length() < 4) return "Password minimal 4 karakter.";
         if (!password.equals(konfirmasi)) return "Konfirmasi password tidak cocok.";
 
-        String sql = "INSERT INTO users (nama, jenis_kelamin, tanggal_lahir, alamat, password_hash) "
-                + "VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO users (nama, jenis_kelamin, tanggal_lahir, alamat, email, password_hash) "
+                + "VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection c = Database.getConnection();
             PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setString(1, nama);
             ps.setString(2, jenisKelamin);
             ps.setDate(3, java.sql.Date.valueOf(tanggalLahir));
             ps.setString(4, alamat);
-            ps.setString(5, buatHash(password));
+            ps.setString(5, email);
+            ps.setString(6, buatHash(password));
             ps.executeUpdate();
             return null;
         } catch (SQLException e) {
